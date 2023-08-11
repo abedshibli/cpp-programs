@@ -1,30 +1,41 @@
 #include <iostream>
-#include <vector>
-class student{
-    std::string status="single";
-public:   
+#include <string>
+
+class Student {
+private:
+    std::string status;
     std::string name;
     std::string birthdate;
-    std::string get_status(){
-        return status;
-    }
+    std::string major;
     int class_number;
-    int id ;
+    int id;
 
+public:
+    Student(std::string status, std::string name, std::string birthdate, std::string major, int class_number, int id) {
+        this->status = status;
+        this->name = name;
+        this->birthdate = birthdate;
+        this->major = major;
+        this->class_number = class_number;
+        this->id = id;
+    }
 
-
+    friend std::ostream& operator<<(std::ostream& os, const Student& student);
 };
 
-int main(){
-    student abed;
-    abed.name="abed";
-    abed.id=305047540;
-    abed.birthdate="15/08/1990";
-    abed.class_number=1;
-    std::vector<student> users;
-    users.push_back(abed);
+std::ostream& operator<<(std::ostream& os, const Student& student) {
+    os << "Name: " << student.name << "\n"
+       << "Status: " << student.status << "\n"
+       << "Birthdate: " << student.birthdate << "\n"
+       << "Major: " << student.major << "\n"
+       << "Class Number: " << student.class_number << "\n"
+       << "ID: " << student.id << "\n";
+    return os;
+}
 
-    std::cout<<"First Name : "<<abed.birthdate<<std::endl;
-    std::cout<<abed.get_status()<<std::endl;
-    std::cout<<users[0].class_number<<std::endl;
+int main() {
+    Student abed("single", "Abed", "1990", "computer science", 10, 305047540);
+    std::cout << abed;
+
+    return 0;
 }
