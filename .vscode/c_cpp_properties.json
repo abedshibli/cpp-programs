@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/aglad/c++ prog/",
+                "/usr/lib/gcc/x86_64-linux-gnu/12/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "${default}",
+            "compilerArgs": [
+                "/usr/bin/gcc"
+            ]
+        }
+    ],
+    "version": 4
+}

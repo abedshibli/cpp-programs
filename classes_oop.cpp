@@ -1,41 +1,17 @@
-#include <iostream>
-#include <string>
+// classes_oop.cpp
+#include "classes_oop.h"
 
-class Student {
-private:
-    std::string status;
-    std::string name;
-    std::string birthdate;
-    std::string major;
-    int class_number;
-    int id;
-
-public:
-    Student(std::string status, std::string name, std::string birthdate, std::string major, int class_number, int id) {
-        this->status = status;
-        this->name = name;
-        this->birthdate = birthdate;
-        this->major = major;
-        this->class_number = class_number;
-        this->id = id;
-    }
-
-    friend std::ostream& operator<<(std::ostream& os, const Student& student);
-};
-
-std::ostream& operator<<(std::ostream& os, const Student& student) {
-    os << "Name: " << student.name << "\n"
-       << "Status: " << student.status << "\n"
-       << "Birthdate: " << student.birthdate << "\n"
-       << "Major: " << student.major << "\n"
-       << "Class Number: " << student.class_number << "\n"
-       << "ID: " << student.id << "\n";
-    return os;
+Student::Student(std::string marital, std::string first, std::string birth, std::string major, int studentAge, int studentID)
+        : maritalStatus(marital), firstName(first), birthYear(birth), major(major), age(studentAge), id(studentID) {
+    // Constructor implementation
 }
 
-int main() {
-    Student abed("single", "Abed", "1990", "computer science", 10, 305047540);
-    std::cout << abed;
-
-    return 0;
+std::ostream& operator<<(std::ostream& os, const Student& student) {
+    os << "Name: " << student.firstName << "\n";
+    os << "Marital Status: " << student.maritalStatus << "\n";
+    os << "Birth Year: " << student.birthYear << "\n";
+    os << "Major: " << student.major << "\n";
+    os << "Age: " << student.age << "\n";
+    os << "ID: " << student.id << "\n";
+    return os;
 }
