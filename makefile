@@ -1,28 +1,13 @@
 # Makefile
 
 # Compiler settings
-CXX = g++
-CXXFLAGS = -std=c++11
-
-# Source files
-SRCS = classes_oop_main.cpp classes_oop.cpp
-
-# Object files
-OBJS = $(SRCS:.cpp=.o)
-
-# Executable
-EXECUTABLE = classes_oop_main
-
-# Targets
-all: $(EXECUTABLE)
-
-$(EXECUTABLE): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-clean:
-	rm -f $(OBJS) $(EXECUTABLE)
+test:classes_oop_main.o classes_oop.o
+	g++ -std=c++11  classes_oop_main.o classes_oop.o -o test
+classes_oop_main.o:classes_oop_main.cpp
+	gcc -std=c++11  -c classes_oop_main.cpp
+classes_oop.o:classes_oop.cpp
+	gcc -std=c++11  -c classes_oop.cpp
 install:
-	./classes_oop_main
+	./test
+clean:
+	rm classes_oop.o classes_oop_main.

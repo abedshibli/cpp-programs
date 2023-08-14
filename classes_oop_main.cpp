@@ -1,4 +1,3 @@
-// classes_oop_main.cpp
 #include <iostream>
 #include "classes_oop.h"
 
